@@ -7,6 +7,8 @@ sudo apt-get install salt-master salt-minion -y
 echo ========================================CONFIGURING SALTSTACK============================================
 mkdir -p /srv/salt
 mkdir -p /srv/pillar
+cp /home/master/project4.1/sls/. /srv/salt
+cp /home/master/project4.1/yaml/. /srv/salt
 sed -i '/#file_roots:/s/^#//' /etc/salt/master
 sed -i '/#pillar_roots:/s/^#//' /etc/salt/master
 sed -i '/#[[:space:]][[:space:]]base:/s/^#//' /etc/salt/master
