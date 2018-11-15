@@ -6,7 +6,7 @@
 
 init_kubernetes:
   cmd.run:
-    - name: kubeadm init --pod-network-cidr=10.244.0.0/16 >> /srv/token/join_token.txt
+    - name: kubeadm init --pod-network-cidr=10.244.0.0/16 | grep 'kubeadm join' > /srv/salt/join_token.txt
 
 /home/master/.kube:
   file.directory:
@@ -21,4 +21,5 @@ copy_file:
 
 install_flannel:
   cmd.run:
-    - name: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    - name: sudo -H -u master kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    - name: sudo -H -u master kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
