@@ -13,7 +13,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: 192.168.0.13
+    server: 192.168.0.23
     # Exported path of your NFS server
     path: "/mysql"
 
@@ -31,6 +31,6 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: 192.168.0.13
+    server: 192.168.0.23
     # Exported path of your NFS server
     path: "/html"
