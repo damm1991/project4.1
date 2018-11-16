@@ -10,3 +10,4 @@ sudo apt-get install salt-minion -y
 echo ========================================CONFIGURING SALTSTACK============================================
 sed -i '/#master:/ a master: 192.168.0.20' /etc/salt/minion
 service salt-minion restart
+echo DONE!

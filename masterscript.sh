@@ -21,3 +21,4 @@ sed -i '/#auto_accept:/ a auto_accept: True' /etc/salt/master
 service salt-master restart
 sed -i '/#master:/ a master: 127.0.0.1' /etc/salt/minion
 service salt-minion restart
+echo DONE!
