@@ -6,10 +6,10 @@ create_pv:
   cmd.run:
     - name: sudo -H -u master kubectl create -f /srv/salt/pv-wordpress-mysql.yaml
 
-create_pv:
+create_mysql_deployment:
   cmd.run:
     - name: sudo -H -u master kubectl create -f /srv/salt/mysql-deployment.yaml
 
-create_pv:
+create_wordpress_deployment:
   cmd.run:
     - name: sudo -H -u master kubectl create -f /srv/salt/wordpress-deployment.yaml
