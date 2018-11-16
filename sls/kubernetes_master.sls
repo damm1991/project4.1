@@ -19,7 +19,10 @@ copy_file:
     - user: master
     - group: master
 
-install_flannel:
+install_kube_flannel:
   cmd.run:
     - name: sudo -H -u master kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+install_kube_flannel_k8:
+  cmd.run:
     - name: sudo -H -u master kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
