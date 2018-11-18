@@ -9,3 +9,6 @@ syslog-ng:
   pkg.installed:
     - require:
       - pkgrepo: syslog-ng_repository
+  service.running:
+    - watch:
+      - file: /etc/syslog-ng/syslog-ng.conf

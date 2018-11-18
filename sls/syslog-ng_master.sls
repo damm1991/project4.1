@@ -10,8 +10,3 @@ add_java_syslog-ng:
     - mode: ensure
     - after: Service
     - content: 'Environment=LD_LIBRARY_PATH=/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/'
-
-syslog-ng:
-  service.running:
-    - watch:
-      - file: /etc/syslog-ng/syslog-ng.conf

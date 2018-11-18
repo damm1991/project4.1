@@ -8,6 +8,4 @@ kibana:
   pkg.installed:
     - require:
       - pkgrepo: kibana_repository
-
-kibana:
-  service.running
+  service.running: []
