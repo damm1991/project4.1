@@ -1,9 +1,3 @@
-/srv/token:
-  file.directory:
-   - user: master
-   - mode: 777
-   - makedirs: True
-
 init_kubernetes:
   cmd.run:
     - name: kubeadm init --pod-network-cidr=10.244.0.0/16 | grep 'kubeadm join' > /srv/salt/join_token.txt

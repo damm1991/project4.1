@@ -2,6 +2,9 @@
 echo ========================================INSTALLING NFS CLIENT=============================================
 sudo apt-get update
 sudo apt-get install rpcbind nfs-common -y
+echo ========================================INSTALLING JAVA==================================================
+sudo apt-get install openjdk-8-jre
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/
 echo ========================================INSTALLING SALTSTACK=============================================
 wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
 echo "deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main" > /etc/apt/sources.list.d/saltstack.list
@@ -12,6 +15,8 @@ mkdir -p /srv/salt
 mkdir -p /srv/pillar
 cp -R sls/* /srv/salt
 cp -R yaml/* /srv/salt
+cp -R syslog-ng_master /srv/salt
+cp -R syslog-ng_client /srv/salt
 sed -i '/#file_roots:/s/^#//' /etc/salt/master
 sed -i '/#pillar_roots:/s/^#//' /etc/salt/master
 sed -i '/#[[:space:]][[:space:]]base:/s/^#//' /etc/salt/master
