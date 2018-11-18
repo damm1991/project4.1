@@ -3,7 +3,7 @@ echo ========================================INSTALLING NFS CLIENT==============
 sudo apt-get update
 sudo apt-get install rpcbind nfs-common -y
 echo ========================================INSTALLING JAVA==================================================
-sudo apt-get install openjdk-8-jre
+sudo apt-get install openjdk-8-jre -y
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/
 echo ========================================INSTALLING SALTSTACK=============================================
 wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
