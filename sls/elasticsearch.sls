@@ -9,3 +9,14 @@ elasticsearch:
   pkg.installed:
     - require:
       - pkgrepo: elasticsearch_repository
+
+/etc/elasticsearch/elasticsearch.yml:
+  file.append:
+    - text:
+      - 'cluster.name: syslog'
+      - 'network.host 0.0.0.0'
+
+elasticsearch:
+  service.running:
+    - watch:
+      - file: /etc/elasticsearch/elasticsearch.yml

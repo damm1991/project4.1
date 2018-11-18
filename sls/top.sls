@@ -3,6 +3,7 @@ base:
     - docker
     - kubernetes_base
     - syslog-ng
+    - metricbeats
   'master':
     - kubernetes_master
     - syslog-ng_master
