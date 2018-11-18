@@ -13,8 +13,16 @@ elasticsearch:
     - watch:
       - file: /etc/elasticsearch/elasticsearch.yml
 
-/etc/elasticsearch/elasticsearch.yml:
-  file.append:
-    - text:
-      - 'cluster.name: syslog'
-      - 'network.host 0.0.0.0'
+edit_elasticsearch_config_name:
+  file.line:
+    - name: /etc/elasticsearch/elasticsearch.yml
+    - mode: ensure
+    - after: 'cluster.name:'
+    - content: 'cluster.name: syslog'
+
+edit_elasticsearch_config_host:
+  file.line:
+    - name: /etc/elasticsearch/elasticsearch.yml
+    - mode: ensure
+    - after: 'network.host:'
+    - content: 'network.host: 0.0.0.0'

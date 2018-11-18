@@ -8,4 +8,13 @@ kibana:
   pkg.installed:
     - require:
       - pkgrepo: kibana_repository
-  service.running: []
+  service.running:
+    - watch:
+      - file: /etc/kibana/kibana.yml
+
+edit_kibana_config:
+  file.line:
+    - name: /etc/kibana/kibana.yml
+    - mode: ensure
+    - after: 'server.host:'
+    - content: 'server.host: 0.0.0.0'
