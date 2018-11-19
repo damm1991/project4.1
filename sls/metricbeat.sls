@@ -19,3 +19,14 @@ set_metricbeat_host:
     - match: 'hosts: ["localhost:9200"]'
     - mode: replace
     - content: 'hosts: ["192.168.0.20:9200"]'
+
+set_metricbeat_xpack:
+  file.line:
+    - name: /etc/metricbeat/metricbeat.yml
+    - match: 'xpack.monitoring.enabled: False'
+    - mode: replace
+    - content: 'xpack.monitoring.enabled: True'
+
+/etc/metricbeat/metricbeat.yml:
+  file.uncomment:
+    - regex: 'xpack.monitoring.elasticsearch:'
