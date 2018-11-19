@@ -23,8 +23,8 @@ set_metricbeat_host:
 set_metricbeat_xpack:
   file.line:
     - name: /etc/metricbeat/metricbeat.yml
-    - match: 'xpack.monitoring.enabled: False'
-    - mode: replace
+    - mode: ensure
+    - after: 'xpack.monitoring.enabled:'
     - content: 'xpack.monitoring.enabled: True'
 
 /etc/metricbeat/metricbeat.yml:

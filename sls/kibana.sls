@@ -18,3 +18,7 @@ edit_kibana_config:
     - mode: ensure
     - after: 'server.host:'
     - content: 'server.host: 0.0.0.0'
+
+syslog-ng_master_restart:
+  cmd.run:
+    - name: service syslog-ng restart
